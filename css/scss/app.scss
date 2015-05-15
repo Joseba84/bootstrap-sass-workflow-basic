@@ -1,0 +1,15 @@
+@import "bootstrap";
+@import "bootstrap/theme";
+
+$red : red;
+
+p {background-color: $red;}
+
+//MIXINS
+.custom-btn {
+    @include button-variant(#cece19, #000000, #2dbe27);
+}
+.panelrow {
+    @include panel-variant(#d01919, #1cf21c, #000000, #bad017);
+}
+//END MIXINS
