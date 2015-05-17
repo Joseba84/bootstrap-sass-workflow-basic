@@ -1,22 +1,31 @@
 /* File: gulpfile.js */
-var gulp = require('gulp');
-var sass = require('gulp-sass');
+var gulp = require('gulp'),
+	sass = require('gulp-sass'),
+ 	livereload = require('gulp-livereload');
 
-var config = {
-    bootstrapDir: './css/vendor/bootstrap-sass',
-    publicDir: './',
-};
-
+var config = { bootstrapDir: './css/vendor/bootstrap-sass', };
+// HTML
+gulp.task('html', function() {
+	return gulp.src([
+		'./index.html'
+	])
+	.pipe(livereload());
+});
+//CSS
 gulp.task('css', function() {
-    return gulp.src('./css/scss/app.scss')
+    return gulp.src(['./css/scss/app.scss'])
     .pipe(sass({
         includePaths: [config.bootstrapDir + '/assets/stylesheets'],
     }))
-    .pipe(gulp.dest(config.publicDir + 'css'));
+    .pipe(gulp.dest('./css'))
+    .pipe(livereload());
 });
+
+//Watch function
 gulp.task('watch', function() {
-  gulp.watch('css/*.scss', ['styles']);
+	livereload.listen();
+	gulp.watch(['./index.html'],['html']);
+  	gulp.watch(['./css/**/*.scss'],[ 'css' ]);
 });
 
-
-gulp.task('default', ['css','watch']);
+gulp.task('default', ['html','css','watch']);

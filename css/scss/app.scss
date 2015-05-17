@@ -1,15 +1,31 @@
-@import "bootstrap";
-@import "bootstrap/theme";
+@import "bootstrap",
+		"bootstrap/theme",
+		"colors",
+		"variables";
 
-$red : red;
 
-p {background-color: $red;}
+
+p {background-color: $color;}
 
 //MIXINS
 .custom-btn {
     @include button-variant(#cece19, #000000, #2dbe27);
 }
 .panelrow {
-    @include panel-variant(#d01919, #1cf21c, #000000, #bad017);
+    @include panel-variant(#2558D0, #1cf21c, #000000, #bad017);
 }
+
 //END MIXINS
+.navbar {
+  position: relative;
+  min-height: $navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
+  margin-bottom: $navbar-margin-bottom;
+  border: 1px solid transparent;
+
+  // Prevent floats from breaking the navbar
+  @include clearfix;
+
+  @media (min-width: $grid-float-breakpoint) {
+    border-radius: $navbar-border-radius;
+  }
+}

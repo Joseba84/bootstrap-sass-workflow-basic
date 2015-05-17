@@ -6278,7 +6278,7 @@ button.close {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1); }
 
 p {
-  background-color: red; }
+  background-color: #9B3099; }
 
 .custom-btn {
   color: #cece19;
@@ -6322,15 +6322,30 @@ p {
     background-color: #cece19; }
 
 .panelrow {
-  border-color: #d01919; }
+  border-color: #2558D0; }
   .panelrow > .panel-heading {
     color: #1cf21c;
     background-color: #000000;
     border-color: #bad017; }
     .panelrow > .panel-heading + .panel-collapse > .panel-body {
-      border-top-color: #d01919; }
+      border-top-color: #2558D0; }
     .panelrow > .panel-heading .badge {
       color: #000000;
       background-color: #1cf21c; }
   .panelrow > .panel-footer + .panel-collapse > .panel-body {
-    border-bottom-color: #d01919; }
+    border-bottom-color: #2558D0; }
+
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid transparent; }
+  .navbar:before,
+  .navbar:after {
+    content: " ";
+    display: table; }
+  .navbar:after {
+    clear: both; }
+  @media (min-width: 768px) {
+    .navbar {
+      border-radius: 4px; } }
